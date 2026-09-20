@@ -14,7 +14,7 @@ Route::get('/datadiri', [DataDiriController::class, 'index']);
 Route::get('/ai', function () {
     $response = agent(
         instructions: 'Kamu adalah asisten AI yang helpful',
-    )->prompt('Buatkan sebuah jokes bapak bapak malam hari');
+    )->prompt('buatkan foto pemandangan gunung yang indah');
 
     $html = Str::markdown((string) $response);
 
