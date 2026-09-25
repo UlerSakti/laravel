@@ -2,11 +2,23 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataDiriController;
+use App\Http\Controllers\ListMahasiswaController;
+
 use function Laravel\Ai\{agent};
 use illuminate\Support\Str;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+// opsi 1
+Route::get('/listmahasiswa', function () {
+    return 'UlerSakti';
+});
+
+Route::prefix('v1')->group(function(){
+    Route::get('/List-Mahasiswa', [ListMahasiswaController::class, 'ListMahasiswaFromController']);
+    Route::get('/List-Mahasiswa/{nama}', [ListMahasiswaController::class, 'NamaMahasiswa']);
 });
 
 Route::get('/datadiri', [DataDiriController::class, 'index']);
