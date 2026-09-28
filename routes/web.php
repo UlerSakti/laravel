@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataDiriController;
+use App\Http\Controllers\KalkulatorController;
 use App\Http\Controllers\ListMahasiswaController;
 
 use function Laravel\Ai\{agent};
@@ -19,6 +20,7 @@ Route::get('/listmahasiswa', function () {
 Route::prefix('v1')->group(function(){
     Route::get('/List-Mahasiswa', [ListMahasiswaController::class, 'ListMahasiswaFromController']);
     Route::get('/List-Mahasiswa/{nama}', [ListMahasiswaController::class, 'NamaMahasiswa']);
+    Route::get('/kalkulator/{angka1}/{angka2}', [KalkulatorController::class, 'Hasil']);
 });
 
 Route::get('/datadiri', [DataDiriController::class, 'index']);
